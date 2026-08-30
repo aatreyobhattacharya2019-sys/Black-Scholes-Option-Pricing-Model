@@ -4,7 +4,6 @@ A Python implementation of the **Black-Scholes-Merton model** for pricing Europe
 
 This project was built to demonstrate practical application of quantitative finance concepts using Python.
 
-## What is the Black-Scholes Model?
 
 The Black-Scholes model is one of the most widely used methods for pricing European-style options. It estimates the theoretical price of an option based on five inputs:
 
