@@ -40,7 +40,6 @@ d2 = d1 − σ·√T
 - Calculate European call and put option prices
 - Calculate all major Greeks: **Delta, Gamma, Vega, Theta, Rho**
 - Visualize how option price and Delta change as the stock price moves
-- Clean, documented, beginner-readable code
 
 ## Project Structure
 
