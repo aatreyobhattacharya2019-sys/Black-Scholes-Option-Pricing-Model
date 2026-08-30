@@ -3,9 +3,7 @@ Visualize how the Black-Scholes option price and Greeks change as the
 underlying stock price moves. Produces a chart with two panels:
   1. Call & Put price vs. Stock Price
   2. Delta vs. Stock Price (for both call and put)
-
-Saves the chart as 'option_sensitivity.png' in the current folder,
-and displays it on screen if run locally.
+  
 """
 
 import numpy as np
