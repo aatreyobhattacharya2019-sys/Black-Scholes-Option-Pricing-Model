@@ -6,7 +6,7 @@ European call and put options, along with the option "Greeks"
 (Delta, Gamma, Vega, Theta, Rho) which measure the option's
 sensitivity to various market parameters.
 
-Author: <Your Name Here>
+Author: Aatreyo Bhattacharya
 """
 
 import numpy as np
@@ -117,9 +117,7 @@ def greeks(S, K, T, r, sigma, option_type="call"):
 
 
 if __name__ == "__main__":
-    # ------------------------------------------------------------
-    # Example usage: price a sample option and print the Greeks
-    # ------------------------------------------------------------
+   
     S = 100      # Current stock price
     K = 105      # Strike price
     T = 0.5      # 6 months to expiration
