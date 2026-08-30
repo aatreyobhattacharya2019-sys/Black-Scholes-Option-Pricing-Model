@@ -1,11 +1,5 @@
 """
 Black-Scholes Option Pricing Model
------------------------------------
-This module implements the Black-Scholes-Merton model for pricing
-European call and put options, along with the option "Greeks"
-(Delta, Gamma, Vega, Theta, Rho) which measure the option's
-sensitivity to various market parameters.
-
 Author: Aatreyo Bhattacharya
 """
 
@@ -14,43 +8,14 @@ from scipy.stats import norm
 
 
 def d1_d2(S, K, T, r, sigma):
-    """
-    Calculate the d1 and d2 terms used throughout the Black-Scholes formulas.
-
-    Parameters
-    ----------
-    S : float -> Current stock price
-    K : float -> Option strike price
-    T : float -> Time to expiration, in years
-    r : float -> Risk-free interest rate (annualized, as a decimal e.g. 0.05 = 5%)
-    sigma : float -> Volatility of the underlying stock (annualized, as a decimal)
-
-    Returns
-    -------
-    (d1, d2) : tuple of floats
-    """
+   
     d1 = (np.log(S / K) + (r + 0.5 * sigma ** 2) * T) / (sigma * np.sqrt(T))
     d2 = d1 - sigma * np.sqrt(T)
     return d1, d2
 
 
 def bs_price(S, K, T, r, sigma, option_type="call"):
-    """
-    Calculate the Black-Scholes price of a European call or put option.
-
-    Parameters
-    ----------
-    S : float -> Current stock price
-    K : float -> Strike price
-    T : float -> Time to expiration in years
-    r : float -> Risk-free rate (decimal)
-    sigma : float -> Volatility (decimal)
-    option_type : str -> "call" or "put"
-
-    Returns
-    -------
-    price : float
-    """
+   
     if T <= 0 or sigma <= 0:
         # At/after expiry, or zero volatility -> payoff is intrinsic value
         if option_type == "call":
@@ -73,17 +38,7 @@ def bs_price(S, K, T, r, sigma, option_type="call"):
 
 
 def greeks(S, K, T, r, sigma, option_type="call"):
-    """
-    Calculate the option Greeks: Delta, Gamma, Vega, Theta, Rho.
-
-    Note: Theta is returned as the change in price per calendar day
-    (annual theta / 365) since that's the most commonly quoted convention.
-    Vega and Rho are returned per 1% change (i.e. already divided by 100).
-
-    Returns
-    -------
-    dict with keys: delta, gamma, vega, theta, rho
-    """
+    
     d1, d2 = d1_d2(S, K, T, r, sigma)
     pdf_d1 = norm.pdf(d1)
 
